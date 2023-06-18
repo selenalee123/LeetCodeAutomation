@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 app.post('/create_file', async (req, res) => {
-  const { problemName, problemLink } = req.body;
+  const { problemName, problemLink, solution } = req.body;
   const fileName = problemName.replace(/\s/g, '_').toLowerCase() + '.py';
   const fileContent = `
 """
@@ -21,11 +21,8 @@ Problem Description:
 [Provide a brief description of the problem]
 
 Solution:
+${solution}
 """
-
-def your_function_name(input_parameters):
-    # Your solution code goes here
-    pass
 
 # Test cases
 # Add test cases to validate your solution
